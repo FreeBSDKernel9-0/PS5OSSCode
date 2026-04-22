@@ -1,0 +1,44 @@
+#!/bin/sh
+#
+# $FreeBSD: releng/11.0/usr.sbin/ntp/scripts/mkver 301247 2016-06-03 08:00:22Z delphij $
+#
+PROG=${1-UNKNOWN}
+
+ConfStr="$PROG"
+
+ConfStr="$ConfStr 4.2.8p8"
+
+case "$CSET" in
+ '') ;;
+ *) ConfStr="$ConfStr@$CSET" ;;
+esac
+
+case "" in
+ '')
+    case "1" in
+     '') ;;
+     *) ConfStr="${ConfStr}-a" ;;
+    esac
+    ;;
+ *)  ConfStr="${ConfStr}-r" ;;
+esac
+
+if [ ! -f .version ]; then
+  echo 0 > .version
+fi
+RUN="`cat .version`"
+RUN="`expr $RUN + 1`"
+echo $RUN > .version
+
+ConfStr="$ConfStr (${RUN})"
+
+echo "Version <${ConfStr}>";
+
+rm -f version.c
+cat > version.c << -EoF-
+/*
+ * version file for $PROG
+ */
+#include <config.h>
+const char * Version = "${ConfStr}";
+-EoF-

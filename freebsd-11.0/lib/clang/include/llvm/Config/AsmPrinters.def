@@ -1,0 +1,10 @@
+/* $FreeBSD: releng/11.0/lib/clang/include/llvm/Config/AsmPrinters.def 276783 2015-01-07 19:06:27Z dim $ */
+
+LLVM_ASM_PRINTER(AArch64)
+LLVM_ASM_PRINTER(ARM)
+LLVM_ASM_PRINTER(Mips)
+LLVM_ASM_PRINTER(PowerPC)
+LLVM_ASM_PRINTER(Sparc)
+LLVM_ASM_PRINTER(X86)
+
+#undef LLVM_ASM_PRINTER

@@ -1,0 +1,11 @@
+# MALTA -- Kernel config for MALTA boards
+#
+# $FreeBSD: releng/11.0/sys/mips/conf/MALTA 276776 2015-01-07 12:12:36Z bz $
+ 
+ident		MALTA
+
+include		"std.MALTA"
+ 
+machine		mips mipsel	# Malta supports both, so it isn't in std.malta
+ 
+makeoptions	KERNLOADADDR=0x80100000

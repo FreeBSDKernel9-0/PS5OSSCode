@@ -1,0 +1,4 @@
+# $FreeBSD: releng/11.0/sys/boot/Makefile.sparc64 235364 2012-05-12 20:27:33Z avg $
+
+SUBDIR+=		ofw
+SUBDIR+=		zfs

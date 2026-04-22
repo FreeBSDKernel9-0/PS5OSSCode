@@ -1,0 +1,3 @@
+# $FreeBSD: releng/11.0/sys/boot/Makefile.pc98 272256 2014-09-28 13:34:43Z nyan $
+
+SUBDIR+=		libstand32

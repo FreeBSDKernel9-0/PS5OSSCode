@@ -1,0 +1,2 @@
+.\" $FreeBSD: releng/11.0/tools/build/options/WITHOUT_USB_GADGET_EXAMPLES 274665 2014-11-18 17:06:50Z imp $
+Set to build USB gadget kernel modules.

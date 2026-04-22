@@ -1,0 +1,11 @@
+# $FreeBSD: releng/11.0/sys/arm/freescale/imx/std.imx51 295885 2016-02-22 11:47:28Z skra $
+machine		arm	armv6
+cpu 		CPU_CORTEXA
+makeoptions	CONF_CFLAGS="-march=armv7a"
+
+options		KERNVIRTADDR=0xc0100000
+makeoptions	KERNVIRTADDR=0xc0100000
+
+device  	fdt_pinctrl
+
+files "../freescale/imx/files.imx5"

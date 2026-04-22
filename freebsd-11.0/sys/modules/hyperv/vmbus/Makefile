@@ -1,0 +1,34 @@
+# $FreeBSD: releng/11.0/sys/modules/hyperv/vmbus/Makefile 303679 2016-08-02 20:56:00Z bdrewery $
+
+.PATH:	${.CURDIR}/../../../dev/hyperv/vmbus \
+	${.CURDIR}/../../../dev/hyperv/vmbus/${MACHINE_CPUARCH}
+
+KMOD=	hv_vmbus
+SRCS=	hv_channel.c \
+	hv_channel_mgmt.c \
+	hv_connection.c \
+	hv_ring_buffer.c \
+	hyperv.c \
+	hyperv_busdma.c \
+	hyperv_machdep.c \
+	vmbus.c \
+	vmbus_et.c
+SRCS+=	acpi_if.h bus_if.h device_if.h opt_acpi.h
+
+# XXX: for assym.s
+SRCS+=  opt_kstack_pages.h opt_nfs.h opt_hwpmc_hooks.h opt_compat.h
+.if ${MACHINE_CPUARCH} == "i386"
+SRCS+=	opt_apic.h
+.endif
+
+SRCS+=	assym.s \
+	vmbus_vector.S
+
+vmbus_vector.o:
+	${CC} -c -x assembler-with-cpp -DLOCORE ${CFLAGS} \
+            ${.IMPSRC} -o ${.TARGET}
+
+CFLAGS+= -I${.CURDIR}/../../../dev/hyperv/include \
+	 -I${.CURDIR}/../../../dev/hyperv/vmbus
+
+.include <bsd.kmod.mk>

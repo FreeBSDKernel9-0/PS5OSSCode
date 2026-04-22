@@ -1,0 +1,7 @@
+# $FreeBSD: releng/11.0/sys/boot/fdt/dts/powerpc/Makefile 267197 2014-06-06 23:53:59Z rpaulo $
+
+DTS!=ls *.dts
+
+all: test-dts
+
+.include <bsd.init.mk>

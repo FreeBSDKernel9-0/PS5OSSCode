@@ -1,0 +1,12 @@
+# Allwinner A10 common options
+#$FreeBSD: releng/11.0/sys/arm/allwinner/std.a10 295885 2016-02-22 11:47:28Z skra $
+
+cpu		CPU_CORTEXA
+machine 	arm armv6
+makeoptions	CONF_CFLAGS="-march=armv7a"
+
+makeoptions	KERNVIRTADDR=0xc0200000
+options 	KERNVIRTADDR=0xc0200000
+
+files		"../allwinner/files.allwinner"
+files		"../allwinner/files.a10"

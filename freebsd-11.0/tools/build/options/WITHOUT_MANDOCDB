@@ -1,0 +1,6 @@
+.\" $FreeBSD: releng/11.0/tools/build/options/WITHOUT_MANDOCDB 283777 2015-05-30 17:41:37Z bapt $
+Use the
+.Xr mandoc 1
+version of
+.Xr makewhatis 8
+database and utilities.

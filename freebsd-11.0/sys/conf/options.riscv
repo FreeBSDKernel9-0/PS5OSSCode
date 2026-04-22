@@ -1,0 +1,4 @@
+# $FreeBSD: releng/11.0/sys/conf/options.riscv 298578 2016-04-25 13:20:57Z br $
+
+RISCV				opt_global.h
+VFP				opt_global.h

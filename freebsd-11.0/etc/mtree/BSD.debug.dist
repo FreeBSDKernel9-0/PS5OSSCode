@@ -1,0 +1,64 @@
+# $FreeBSD: releng/11.0/etc/mtree/BSD.debug.dist 298997 2016-05-03 18:26:07Z jhb $
+#
+# Please see the file src/etc/mtree/README before making changes to this file.
+#
+
+/set type=dir uname=root gname=wheel mode=0755
+.
+    debug
+        bin
+        ..
+        boot
+            kernel
+            ..
+            modules
+            ..
+        ..
+        lib
+            casper
+            ..
+            geom
+            ..
+        ..
+        libexec
+        ..
+        sbin
+        ..
+        usr
+            bin
+            ..
+            lib
+                clang
+                    3.8.0
+                        lib
+                            freebsd
+                            ..
+                        ..
+                    ..
+                ..
+                engines
+                ..
+                i18n
+                ..
+                private
+                ..
+            ..
+            libexec
+                bsdinstall
+                ..
+                lpr
+                    ru
+                    ..
+                ..
+                sendmail
+                ..
+                sm.bin
+                ..
+            ..
+            sbin
+            ..
+            tests
+            ..
+        ..
+    ..
+..

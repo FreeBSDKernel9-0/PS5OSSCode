@@ -1,0 +1,7 @@
+# $FreeBSD: releng/11.0/sys/boot/Makefile.mips 296183 2016-02-29 07:47:04Z sgalabov $
+
+.if ${MK_FDT} != "no"
+SUBDIR+=		fdt
+.endif
+
+SUBDIR+=		uboot

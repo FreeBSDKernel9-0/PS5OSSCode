@@ -1,0 +1,7 @@
+# $FreeBSD: releng/11.0/sys/boot/Makefile.arm64 281526 2015-04-14 13:55:01Z andrew $
+
+.if ${MK_FDT} != "no"
+SUBDIR+=		fdt
+.endif
+
+SUBDIR+=		efi

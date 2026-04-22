@@ -1,0 +1,5 @@
+# $FreeBSD: releng/11.0/sys/arm/allwinner/files.a10 298625 2016-04-26 11:15:48Z manu $
+
+arm/allwinner/a10/a10_intc.c		standard
+arm/allwinner/a10_padconf.c		standard
+arm/allwinner/timer.c			standard

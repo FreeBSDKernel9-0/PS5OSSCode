@@ -1,0 +1,5 @@
+# $FreeBSD: releng/11.0/sys/arm/broadcom/bcm2835/std.rpi 297068 2016-03-20 16:48:29Z ian $
+
+options		KERNVIRTADDR=0xc0100000
+makeoptions	KERNVIRTADDR=0xc0100000
+options		LINUX_BOOT_ABI

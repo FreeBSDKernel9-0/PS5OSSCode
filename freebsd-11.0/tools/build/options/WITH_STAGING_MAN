@@ -1,0 +1,2 @@
+.\" $FreeBSD: releng/11.0/tools/build/options/WITH_STAGING_MAN 284708 2015-06-22 20:21:57Z sjg $
+Enable staging of MAN pages to stage tree.

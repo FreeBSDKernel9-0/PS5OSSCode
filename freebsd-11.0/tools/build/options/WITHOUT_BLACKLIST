@@ -1,0 +1,2 @@
+.\" $FreeBSD: releng/11.0/tools/build/options/WITHOUT_BLACKLIST 301554 2016-06-07 16:35:55Z lidl $
+Set this if you do not want to build blacklistd / blacklistctl.
