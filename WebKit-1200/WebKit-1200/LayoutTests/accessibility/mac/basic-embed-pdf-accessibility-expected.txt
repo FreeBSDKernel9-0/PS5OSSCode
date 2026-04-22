@@ -1,0 +1,23 @@
+This test ensures PDFs loaded in embed tags are exposed in the accessibility tree.
+
+PASS: pdfEmbedElement.domIdentifier === 'pdfEmbed'
+PASS: pdfEmbedElement.role === 'AXRole: AXGroup'
+PASS: pdfEmbedElement.subrole === 'AXSubrole: '
+PASS: pdfEmbedElement.childrenCount === 1
+PASS: pdfAxObject.stringAttributeValue('AXSubrole') === 'AXPDFPluginSubrole'
+PASS: pdfAxObject.childrenCount === 1
+PASS: pdfAxObject.parentElement().domIdentifier === 'pdfEmbed'
+PASS: pdfLayerController.stringAttributeValue('AXRole') === 'AXGroup'
+PASS: pdfLayerController.stringAttributeValue('AXDescription') === 'document'
+PASS: pdfTextNode.stringAttributeValue('AXRole') === 'AXStaticText'
+PASS: pdfTextNode.stringAttributeValue('AXValue').trimEnd() === 'Welcome to the website for the WebKit Open Source Project!'
+PASS: hitTestResult.stringAttributeValue('AXRole') === 'AXGroup'
+PASS: hitTestResult.stringAttributeValue('AXDescription') === 'document'
+PASS: pdfTextNode.stringAttributeValue('AXRole') === 'AXStaticText'
+PASS: pdfTextNode.stringAttributeValue('AXValue').trimEnd() === 'Welcome to the website for the WebKit Open Source Project!'
+PASS: searchResultElement.stringAttributeValue('AXSubrole') === 'AXPDFPluginSubrole'
+
+PASS successfullyParsed is true
+
+TEST COMPLETE
+

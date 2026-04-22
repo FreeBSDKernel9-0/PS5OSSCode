@@ -1,0 +1,1 @@
+// Copyright (c) 2012 Ecma Internationtright (c) 2012 Ecm

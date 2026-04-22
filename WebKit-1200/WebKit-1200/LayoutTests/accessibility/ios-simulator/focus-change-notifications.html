@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<script src="../../resources/js-test.js"></script>
+</head>
+<body>
+
+<h1 tabindex=0 id="h1">H1</h1>
+<h2 tabindex=0 id="h2">H2</h2>
+
+<script>
+description("This tests that notifications are fired for focus changes");
+
+var focusChangeCount = 0;
+var rootElement = null;
+function focusCallback(notification) {
+    if (notification === "AXFocusChanged") {
+        focusChangeCount++;
+        if (focusChangeCount === 1)
+            document.getElementById("h1").focus();
+
+        // We should get a total of 2 focus changes.
+        if (focusChangeCount === 2) {
+           rootElement.removeNotificationListener();
+           finishJSTest();
+        }
+    }
+}
+
+if (window.accessibilityController) {
+    // Make sure AX gets turned on.
+    rootElement = accessibilityController.rootElement.childAtIndex(0);
+    jsTestIsAsync = true;
+
+    var addedNotification = rootElement.addNotificationListener(focusCallback);
+    if (!addedNotification) {
+        rootElement = accessibilityController.rootElement;
+        addedNotification = rootElement.addNotificationListener(focusCallback);
+    }
+
+    shouldBe("addedNotification", "true");
+
+    document.getElementById("h2").focus();
+}
+</script>
+</body>
+</html>

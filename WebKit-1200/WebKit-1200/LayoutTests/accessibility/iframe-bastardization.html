@@ -1,0 +1,29 @@
+<head>
+<script src="../resources/js-test.js"></script>
+<script src="../resources/accessibility-helper.js"></script>
+</head>
+<body id="body" role="group">
+
+<iframe id='iframe1' scrolling=YES  width=100 height=100 border=1 src='resources/cake.png'></iframe>
+
+<script>
+var output = "This test makes sure that the AX parent chain hierarchy with iframes is correct\n\n";
+
+if (window.accessibilityController) {
+    var body = document.getElementById("body");
+    body.focus();
+    var webArea = accessibilityController.focusedElement;
+
+    var iframeScrollArea = webArea.childAtIndex(0);
+    var iframeWebArea = iframeScrollArea.childAtIndex(0);
+
+    var parentIframeWebArea = iframeWebArea.parentElement();
+    var parentIframeScrollArea = parentIframeWebArea.parentElement();
+
+    output += expect("parentIframeWebArea.isEqual(iframeScrollArea)", "true");
+    output += expect("parentIframeScrollArea.isEqual(webArea)", "true");
+    debug(output);
+}
+</script>
+</body>
+</html>

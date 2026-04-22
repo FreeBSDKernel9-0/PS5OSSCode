@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<script src="../../../resources/accessibility-helper.js"></script>
+<script src="../../../resources/js-test.js"></script>
+</head>
+<body>
+
+<div id="content" contenteditable>
+word mispelled word
+</div>
+
+<script>
+if (window.accessibilityController) {
+    let output = "This test ensures that attributed string for text marker range works and does include misspelled attribute.\n\n";
+
+    var text = null;
+    var expected = "AXFont - {\n    AXFontFamily = Times;\n    AXFontName = \"Times-Roman\";\n    AXFontSize = 16;\n}, Misspelled, AXFont - {\n    AXFontFamily = Times;\n    AXFontName = \"Times-Roman\";\n    AXFontSize = 16;\n}, AXFont - {\n    AXFontFamily = Times;\n    AXFontName = \"Times-Roman\";\n    AXFontSize = 16;\n}, word mispelled word";
+
+    let axElement = accessibilityController.accessibleElementById("content");
+    let range = axElement.textMarkerRangeForElement(axElement);
+    text = axElement.attributedStringForTextMarkerRange(range);
+    output += expect("text", "expected");
+
+    document.getElementById("content").style.visibility = "hidden";
+    debug(output);
+}
+</script>
+</body>
+</html>
